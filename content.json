@@ -1,0 +1,388 @@
+{
+  "es": {
+    "navigation": {
+      "home": "INICIO",
+      "about": "ACERCA",
+      "experience": "EXPERIENCIA",
+      "skills": "HABILIDADES",
+      "education": "EDUCACIÓN",
+      "contact": "CONTACTO"
+    },
+    "terminal": {
+      "title": "BLACK MESA RESEARCH FACILITY",
+      "status": "ONLINE",
+      "lines": [
+        "Inicializando Terminal de Desarrollo iOS...",
+        "Cargando datos del portafolio...",
+        "Acceso concedido al Sector de Ingeniería Móvil",
+        "Bienvenido, Benjamín Cáceres"
+      ],
+      "prompt": "Entrando al terminal del portafolio iOS..."
+    },
+    "home": {
+      "title": "BENJAMÍN CÁCERES",
+      "subtitle": "iOS Software Engineer",
+      "description": "Desarrollador iOS especializado con 4+ años de experiencia construyendo aplicaciones escalables en banca, fintech y consultoría. Experto en Swift, UIKit y arquitecturas modernas (VIPER, MVVM, MVC).",
+      "stats": {
+        "yearsExperience": "Años Experiencia",
+        "companiesLed": "Empresas Lideradas",
+        "englishLevel": "Inglés Proficiente"
+      },
+      "buttons": {
+        "viewExperience": "VER EXPERIENCIA",
+        "contact": "CONTACTO"
+      }
+    },
+    "about": {
+      "title": "ACERCA DE MÍ",
+      "profileTitle": "PERFIL DE iOS ENGINEER",
+      "profileDescription": "iOS Software Engineer con 4+ años de experiencia construyendo aplicaciones escalables en banca, fintech y consultoría. Especializado en Swift, UIKit y arquitecturas modernas como VIPER, MVVM y MVC. Experto en liderar equipos, mentoring y entregar funcionalidades de alto impacto en entornos Agile.",
+      "highlights": [
+        "Especialista en desarrollo iOS nativo",
+        "Experto en arquitecturas VIPER, MVVM, MVC",
+        "Líder de equipos y mentor",
+        "Ingeniero en Ciencias de la Computación"
+      ]
+    },
+    "experience": {
+      "title": "EXPERIENCIA",
+      "companies": [
+        {
+          "name": "BANCO FALABELLA",
+          "status": "CURRENT",
+          "logo": "https://www.bancofalabella.cl/_next/static/media/logo.686cc6de.svg?w=3840&q=80",
+          "position": "Mobile Software Engineer",
+          "period": "Feb 2023 - Present",
+          "description": "Desarrollo para plataforma iOS usando Swift. Entrega de nuevas funcionalidades de Tarjeta de Crédito y Estados de Cuenta, mejorando la adopción digital y reduciendo consultas manuales.",
+          "technologies": ["Swift", "UIKit", "Alamofire", "Bitrise"],
+          "stats": {
+            "teams": "Equipos: Digital Resolution & Balance",
+            "testflight": "TestFlight: Friends & Family"
+          }
+        },
+        {
+          "name": "TRUST TECHNOLOGIES",
+          "status": "COMPLETED",
+          "logo": "https://cdn.prod.website-files.com/64c29bc0544af9e369ebbbe3/6668a6bba8d6be836ec7bd51_logo_Trust.svg",
+          "position": "iOS Engineer",
+          "period": "Mar 2021 - Feb 2023",
+          "description": "Desarrollo de vistas Storyboard y programáticas. Desarrollo y distribución de XCFrameworks usando Carthage y Cocoapods. Implementación de módulos VIPER/MVVM/MVC con patrón Coordinator.",
+          "technologies": ["Swift", "VIPER", "CoreData", "GitLab"],
+          "stats": {
+            "frameworks": "XCFrameworks: Distribuidos",
+            "architecture": "Arquitectura: VIPER/MVVM"
+          }
+        },
+        {
+          "name": "MATCHBOOK SPA",
+          "status": "FOUNDER",
+          "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQGNx5LnQzk_xA/company-logo_200_200/company-logo_200_200/0/1646142513344/matchbook_chile_logo?e=1762992000&v=beta&t=et0vHtdER-IGGlr6A6-P0pZngcek80px2DnQ7n6QqkY",
+          "position": "Co-founder & Team Lead",
+          "period": "Aug 2020 - Jun 2025",
+          "description": "Dirección y coordinación de equipos Frontend y Backend. Definición de objetivos y planificación de tareas. Desarrollo de servicios RESTful y componentes UI.",
+          "technologies": ["Node.js", "React", "PostgreSQL", "AWS"],
+          "stats": {
+            "teams": "Equipos: Frontend & Backend",
+            "cloud": "Cloud: AWS & Heroku"
+          }
+        },
+        {
+          "name": "EMPÍRICA CONSULTORES",
+          "status": "COMPLETED",
+          "logo": "https://empiricaconsultores.cl/wp-content/uploads/2022/05/logo_empirica.svg",
+          "position": "Flutter Developer",
+          "period": "Jul 2020 - Dic 2020",
+          "description": "Desarrollo de aplicación móvil para el proceso QAQC del laboratorio. Implementación de funcionalidades específicas para control de calidad y gestión de procesos científicos.",
+          "technologies": ["Flutter", "Dart", "QAQC", "Laboratory"],
+          "stats": {
+            "sector": "Sector: Laboratorio",
+            "process": "Proceso: QAQC"
+          }
+        }
+      ]
+    },
+    "skills": {
+      "title": "HABILIDADES Y EXPERTISE",
+      "categories": [
+        {
+          "name": "DESARROLLO iOS",
+          "skills": [
+            {"name": "Swift", "level": 95},
+            {"name": "UIKit", "level": 92},
+            {"name": "CoreData", "level": 88},
+            {"name": "Alamofire", "level": 90}
+          ]
+        },
+        {
+          "name": "ARQUITECTURAS Y PATRONES",
+          "skills": [
+            {"name": "VIPER", "level": 95},
+            {"name": "MVVM", "level": 92},
+            {"name": "MVC", "level": 90},
+            {"name": "Coordinator", "level": 88}
+          ]
+        },
+        {
+          "name": "HERRAMIENTAS Y TECNOLOGÍAS",
+          "skills": [
+            {"name": "Xcode", "level": 95},
+            {"name": "Bitrise", "level": 85},
+            {"name": "Cocoapods", "level": 90},
+            {"name": "GitLab", "level": 88}
+          ]
+        }
+      ]
+    },
+    "education": {
+      "title": "EDUCACIÓN",
+      "institutions": [
+        {
+          "name": "UNIVERSIDAD ANDRÉS BELLO",
+          "status": "IN PROGRESS",
+          "degree": "Bachelor's Degree in Computer Science and Informatics",
+          "description": "Estudiando actualmente para obtener el título de Ingeniería en Ciencias de la Computación e Informática. Enfoque en desarrollo de software, algoritmos y sistemas de información.",
+          "technologies": ["Computer Science", "Software Engineering", "Algorithms", "Information Systems"],
+          "stats": {
+            "status": "Status: En progreso",
+            "focus": "Focus: Software Development"
+          }
+        },
+        {
+          "name": "FEDERICO SANTA MARÍA",
+          "status": "COMPLETED",
+          "degree": "Computer Science Technical Degree",
+          "description": "Título técnico en Ciencias de la Computación que proporcionó una base sólida en programación, estructuras de datos, bases de datos y desarrollo de software.",
+          "technologies": ["Technical Degree", "Programming", "Data Structures", "Databases"],
+          "stats": {
+            "status": "Status: Completado",
+            "focus": "Focus: Technical Foundation"
+          }
+        },
+        {
+          "name": "INSTITUTO EUROPEO DE POSTGRADO",
+          "status": "COMPLETED",
+          "degree": "Design Thinking Program",
+          "description": "Programa especializado en Design Thinking que desarrolló habilidades en innovación, resolución de problemas y metodologías centradas en el usuario.",
+          "technologies": ["Design Thinking", "Innovation", "Problem Solving", "User-Centered"],
+          "stats": {
+            "status": "Status: Completado",
+            "focus": "Focus: Innovation & UX"
+          }
+        }
+      ]
+    },
+    "contact": {
+      "title": "CONTACTO",
+      "form": {
+        "name": "NOMBRE:",
+        "email": "EMAIL:",
+        "subject": "ASUNTO:",
+        "message": "MENSAJE:",
+        "sendButton": "ENVIAR MENSAJE"
+      },
+      "info": {
+        "email": "benjamin.caceres.ra@gmail.com",
+        "phone": "+56 9 5137 4590",
+        "location": "Chile",
+        "languages": "Español nativo | Inglés C2"
+      }
+    },
+    "footer": {
+      "text": "© 2024 Benjamín Cáceres - iOS Engineer",
+      "status": "ESTADO DEL SISTEMA: EN LÍNEA"
+    }
+  },
+  "en": {
+    "navigation": {
+      "home": "HOME",
+      "about": "ABOUT",
+      "experience": "EXPERIENCE",
+      "skills": "SKILLS",
+      "education": "EDUCATION",
+      "contact": "CONTACT"
+    },
+    "terminal": {
+      "title": "BLACK MESA RESEARCH FACILITY",
+      "status": "ONLINE",
+      "lines": [
+        "Initializing iOS Development Terminal...",
+        "Loading portfolio data...",
+        "Access granted to Mobile Engineering Sector",
+        "Welcome, Benjamín Cáceres"
+      ],
+      "prompt": "Entering iOS portfolio terminal..."
+    },
+    "home": {
+      "title": "BENJAMÍN CÁCERES",
+      "subtitle": "iOS Software Engineer",
+      "description": "iOS developer specialized with 4+ years of experience building scalable apps in banking, fintech, and consulting. Expert in Swift, UIKit, and modern architectures (VIPER, MVVM, MVC).",
+      "stats": {
+        "yearsExperience": "Years Experience",
+        "companiesLed": "Companies Led",
+        "englishLevel": "Proficient English"
+      },
+      "buttons": {
+        "viewExperience": "VIEW EXPERIENCE",
+        "contact": "CONTACT"
+      }
+    },
+    "about": {
+      "title": "ABOUT ME",
+      "profileTitle": "iOS ENGINEER PROFILE",
+      "profileDescription": "iOS Software Engineer with 4+ years of experience building scalable applications in banking, fintech, and consulting. Specialized in Swift, UIKit, and modern architectures like VIPER, MVVM, and MVC. Expert in leading teams, mentoring, and delivering high-impact features in Agile environments.",
+      "highlights": [
+        "Specialist in native iOS development",
+        "Expert in VIPER, MVVM, MVC architectures",
+        "Team leader and mentor",
+        "Computer Science Engineer"
+      ]
+    },
+    "experience": {
+      "title": "EXPERIENCE",
+      "companies": [
+        {
+          "name": "BANCO FALABELLA",
+          "status": "CURRENT",
+          "logo": "https://www.bancofalabella.cl/_next/static/media/logo.686cc6de.svg?w=3840&q=80",
+          "position": "Mobile Software Engineer",
+          "period": "Feb 2023 - Present",
+          "description": "Development for iOS platform using Swift. Delivery of new Credit Card and Account Statement features, improving digital adoption and reducing manual queries.",
+          "technologies": ["Swift", "UIKit", "Alamofire", "Bitrise"],
+          "stats": {
+            "teams": "Teams: Digital Resolution & Balance",
+            "testflight": "TestFlight: Friends & Family"
+          }
+        },
+        {
+          "name": "TRUST TECHNOLOGIES",
+          "status": "COMPLETED",
+          "logo": "https://cdn.prod.website-files.com/64c29bc0544af9e369ebbbe3/6668a6bba8d6be836ec7bd51_logo_Trust.svg",
+          "position": "iOS Engineer",
+          "period": "Mar 2021 - Feb 2023",
+          "description": "Development of Storyboard and programmatic views. Development and distribution of XCFrameworks using Carthage and Cocoapods. Implementation of VIPER/MVVM/MVC modules with Coordinator pattern.",
+          "technologies": ["Swift", "VIPER", "CoreData", "GitLab"],
+          "stats": {
+            "frameworks": "XCFrameworks: Distributed",
+            "architecture": "Architecture: VIPER/MVVM"
+          }
+        },
+        {
+          "name": "MATCHBOOK SPA",
+          "status": "FOUNDER",
+          "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQGNx5LnQzk_xA/company-logo_200_200/company-logo_200_200/0/1646142513344/matchbook_chile_logo?e=1762992000&v=beta&t=et0vHtdER-IGGlr6A6-P0pZngcek80px2DnQ7n6QqkY",
+          "position": "Co-founder & Team Lead",
+          "period": "Aug 2020 - Jun 2025",
+          "description": "Direction and coordination of Frontend and Backend teams. Defining team objectives and task planning. Development of RESTful services and UI components.",
+          "technologies": ["Node.js", "React", "PostgreSQL", "AWS"],
+          "stats": {
+            "teams": "Teams: Frontend & Backend",
+            "cloud": "Cloud: AWS & Heroku"
+          }
+        },
+        {
+          "name": "EMPÍRICA CONSULTORES",
+          "status": "COMPLETED",
+          "logo": "https://empiricaconsultores.cl/wp-content/uploads/2022/05/logo_empirica.svg",
+          "position": "Flutter Developer",
+          "period": "Jul 2020 - Dec 2020",
+          "description": "Mobile application development for the laboratory's QAQC process. Implementation of specific features for quality control and scientific process management.",
+          "technologies": ["Flutter", "Dart", "QAQC", "Laboratory"],
+          "stats": {
+            "sector": "Sector: Laboratory",
+            "process": "Process: QAQC"
+          }
+        }
+      ]
+    },
+    "skills": {
+      "title": "SKILLS & EXPERTISE",
+      "categories": [
+        {
+          "name": "iOS DEVELOPMENT",
+          "skills": [
+            {"name": "Swift", "level": 95},
+            {"name": "UIKit", "level": 92},
+            {"name": "CoreData", "level": 88},
+            {"name": "Alamofire", "level": 90}
+          ]
+        },
+        {
+          "name": "ARCHITECTURES & PATTERNS",
+          "skills": [
+            {"name": "VIPER", "level": 95},
+            {"name": "MVVM", "level": 92},
+            {"name": "MVC", "level": 90},
+            {"name": "Coordinator", "level": 88}
+          ]
+        },
+        {
+          "name": "TOOLS & TECHNOLOGIES",
+          "skills": [
+            {"name": "Xcode", "level": 95},
+            {"name": "Bitrise", "level": 85},
+            {"name": "Cocoapods", "level": 90},
+            {"name": "GitLab", "level": 88}
+          ]
+        }
+      ]
+    },
+    "education": {
+      "title": "EDUCATION",
+      "institutions": [
+        {
+          "name": "UNIVERSIDAD ANDRÉS BELLO",
+          "status": "IN PROGRESS",
+          "degree": "Bachelor's Degree in Computer Science and Informatics",
+          "description": "Currently studying to obtain a Computer Science and Informatics Engineering degree. Focus on software development, algorithms, and information systems.",
+          "technologies": ["Computer Science", "Software Engineering", "Algorithms", "Information Systems"],
+          "stats": {
+            "status": "Status: In progress",
+            "focus": "Focus: Software Development"
+          }
+        },
+        {
+          "name": "FEDERICO SANTA MARÍA",
+          "status": "COMPLETED",
+          "degree": "Computer Science Technical Degree",
+          "description": "Technical degree in Computer Science that provided a solid foundation in programming, data structures, databases, and software development.",
+          "technologies": ["Technical Degree", "Programming", "Data Structures", "Databases"],
+          "stats": {
+            "status": "Status: Completed",
+            "focus": "Focus: Technical Foundation"
+          }
+        },
+        {
+          "name": "INSTITUTO EUROPEO DE POSTGRADO",
+          "status": "COMPLETED",
+          "degree": "Design Thinking Program",
+          "description": "Specialized program in Design Thinking that developed skills in innovation, problem-solving, and user-centered methodologies.",
+          "technologies": ["Design Thinking", "Innovation", "Problem Solving", "User-Centered"],
+          "stats": {
+            "status": "Status: Completed",
+            "focus": "Focus: Innovation & UX"
+          }
+        }
+      ]
+    },
+    "contact": {
+      "title": "CONTACT",
+      "form": {
+        "name": "NAME:",
+        "email": "EMAIL:",
+        "subject": "SUBJECT:",
+        "message": "MESSAGE:",
+        "sendButton": "SEND MESSAGE"
+      },
+      "info": {
+        "email": "benjamin.caceres.ra@gmail.com",
+        "phone": "+56 9 5137 4590",
+        "location": "Chile",
+        "languages": "Native Spanish | English C2"
+      }
+    },
+    "footer": {
+      "text": "© 2024 Benjamín Cáceres - iOS Engineer",
+      "status": "SYSTEM STATUS: ONLINE"
+    }
+  }
+}
