@@ -6,7 +6,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
     title: 'Software Engineer',
     subtitle: 'iOS Developer · Full Stack · Co-Founder',
     location: 'Valparaíso, Chile',
-    email: 'ben@bencaceres.com',
+    email: '',   // kept empty — address is server-side only to prevent exposure
     linkedin: 'https://www.linkedin.com/in/bigmouthstrks/',
     github: 'https://github.com/bigmouthstrks',
     bio: 'Soy Ingeniero de Software en Valparaíso, Chile. Me muevo con comodidad entre el diseño de interfaces, la lógica de negocio y la infraestructura — porque entender el sistema completo hace mejor cada parte de él. Especializado en iOS con Swift, con experiencia real en backend, bases de datos y despliegue. Trabajo bien en equipos diversos, me adapto rápido a contextos nuevos y tengo claro que el código es el medio, no el fin: lo que importa es la experiencia que llega al usuario.',

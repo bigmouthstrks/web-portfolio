@@ -2,6 +2,8 @@ import { Component, signal } from '@angular/core';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
 import { PORTFOLIO_DATA } from '../../core/data/portfolio.data';
 
+type FormStatus = 'idle' | 'sending' | 'sent' | 'error';
+
 @Component({
   selector: 'app-contact',
   imports: [RevealDirective],
@@ -20,8 +22,15 @@ import { PORTFOLIO_DATA } from '../../core/data/portfolio.data';
 
           <!-- Form -->
           <div class="card form-card" appReveal>
-            @if (!sent()) {
+            @if (status() !== 'sent') {
               <form class="contact-form" (submit)="handleSubmit($event)" novalidate>
+
+                <!-- Honeypot — hidden from humans, bots fill it in -->
+                <div class="trap-field" aria-hidden="true">
+                  <label for="_trap">Leave this empty</label>
+                  <input id="_trap" name="_trap" type="text" tabindex="-1" autocomplete="off" />
+                </div>
+
                 <div class="form-group">
                   <label class="form-label" for="name">Nombre</label>
                   <input class="form-input" id="name" name="name"
@@ -48,15 +57,21 @@ import { PORTFOLIO_DATA } from '../../core/data/portfolio.data';
                             placeholder="Escribe tu mensaje…" required></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-submit">
-                  Enviar mensaje
+                @if (status() === 'error') {
+                  <p class="error-msg" role="alert">{{ errorText() }}</p>
+                }
+
+                <button type="submit" class="btn btn-submit"
+                        [disabled]="status() === 'sending'"
+                        [class.sending]="status() === 'sending'">
+                  {{ status() === 'sending' ? 'Enviando…' : 'Enviar mensaje' }}
                 </button>
               </form>
             } @else {
               <div class="sent-state">
                 <p class="sent-label mono">Mensaje enviado</p>
                 <p class="sent-msg">Gracias por escribir. Responderé a la brevedad.</p>
-                <button class="btn btn-ghost" (click)="sent.set(false)">
+                <button class="btn btn-ghost" (click)="reset()">
                   Nuevo mensaje
                 </button>
               </div>
@@ -118,6 +133,41 @@ import { PORTFOLIO_DATA } from '../../core/data/portfolio.data';
     .btn-submit {
       align-self: flex-start;
       margin-top: .5rem;
+    }
+
+    .btn-submit:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    .btn-submit.sending {
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: .5; }
+      50%       { opacity: .85; }
+    }
+
+    /* Honeypot — visually hidden */
+    .trap-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    /* Error message */
+    .error-msg {
+      font-size: .82rem;
+      color: #c67a7a;
+      background: rgba(198, 122, 122, 0.08);
+      border: 1px solid rgba(198, 122, 122, 0.22);
+      border-radius: 4px;
+      padding: .6rem .9rem;
+      margin: 0;
+      line-height: 1.5;
     }
 
     /* Sent state */
@@ -189,10 +239,43 @@ import { PORTFOLIO_DATA } from '../../core/data/portfolio.data';
 })
 export class ContactComponent {
   readonly data = PORTFOLIO_DATA;
-  readonly sent = signal(false);
+  readonly status = signal<FormStatus>('idle');
+  readonly errorText = signal('');
 
-  handleSubmit(event: Event): void {
+  reset(): void {
+    this.status.set('idle');
+    this.errorText.set('');
+  }
+
+  async handleSubmit(event: Event): Promise<void> {
     event.preventDefault();
-    this.sent.set(true);
+    if (this.status() === 'sending') return;
+
+    const form = event.target as HTMLFormElement;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    this.status.set('sending');
+    this.errorText.set('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const json = await res.json().catch(() => ({}));
+
+      if (res.ok) {
+        this.status.set('sent');
+        form.reset();
+      } else {
+        this.errorText.set(json.error ?? 'Error inesperado. Intenta nuevamente.');
+        this.status.set('error');
+      }
+    } catch {
+      this.errorText.set('Sin conexión. Verifica tu red e intenta de nuevo.');
+      this.status.set('error');
+    }
   }
 }
