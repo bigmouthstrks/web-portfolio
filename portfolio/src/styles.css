@@ -1,0 +1,469 @@
+/* ================================================================
+   GEN-X SOFT CLUB — FOREST / MILITARY GREEN PALETTE
+   Corporate 90s · Urban transit · Cold fluorescent
+   ================================================================ */
+
+:root {
+  color-scheme: dark;
+
+  /* — Core palette — */
+  --bg:           #10160D;
+  --bg-2:         #122812;
+  --surface:      rgba(18, 40, 18, 0.30);
+
+  /* — Text hierarchy (all pass WCAG AA without opacity chains) — */
+  --accent-1:     #668763;   /* 4.96:1 on --bg — muted labels, metadata     */
+  --accent-2:     #8FAD8C;   /* 7.96:1 on --bg — body text, secondary       */
+  --accent-light: #C4D9C2;   /* 12.5:1 on --bg — headings, primary text     */
+
+  /* — UI tokens — */
+  --glow:         rgba(102, 135, 99, 0.15);
+  --border:       rgba(102, 135, 99, 0.14);
+  --border-light: rgba(102, 135, 99, 0.07);
+
+  /* — Typography — */
+  --font:      'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Bebas Neue', 'Impact', sans-serif;
+
+  /* — Motion — */
+  --ease:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --dur:      700ms;
+  --dur-slow: 900ms;
+}
+
+/* ================================================================
+   RESET
+   ================================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ================================================================
+   BASE
+   ================================================================ */
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font);
+  font-weight: 300;              /* Inter Light — cuerpos y párrafos */
+  font-size: 16px;
+  line-height: 1.75;
+  background: var(--bg);
+  color: var(--accent-2);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+
+/* — Horizontal light-band overlay (fluorescent ceiling panels) — */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent           0px,
+      transparent           78px,
+      rgba(102,135,99,.025) 78px,
+      rgba(102,135,99,.025) 80px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* — Depth vignette — */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(8,11,6,.72)  0%,
+      transparent       25%,
+      transparent       75%,
+      rgba(8,11,6,.72)  100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+app-root, .skip-link { position: relative; z-index: 1; }
+
+/* ================================================================
+   AMBIENT LIGHT BLOBS
+   ================================================================ */
+.bg-blobs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.blob { position: absolute; border-radius: 50%; }
+
+.blob-1 {
+  width: 700px;
+  height: 700px;
+  top: -120px;
+  right: -80px;
+  background: radial-gradient(circle at 40% 40%,
+    rgba(44, 99, 52, 0.30)  0%,
+    rgba(102,135,99, 0.08)  40%,
+    transparent             70%);
+  filter: blur(60px);
+}
+
+.blob-2 {
+  width: 600px;
+  height: 600px;
+  bottom: 5%;
+  left: -120px;
+  background: radial-gradient(circle at 60% 60%,
+    rgba(18, 40, 18, 0.9)   0%,
+    rgba(102,135,99, 0.10)  45%,
+    transparent             70%);
+  filter: blur(72px);
+}
+
+.blob-3 {
+  width: 500px;
+  height: 500px;
+  top: 45%;
+  right: 8%;
+  background: radial-gradient(circle,
+    rgba(102, 135, 99, 0.12) 0%,
+    transparent              65%);
+  filter: blur(64px);
+}
+
+.blob-4 {
+  width: 380px;
+  height: 380px;
+  bottom: 15%;
+  left: 35%;
+  background: radial-gradient(circle,
+    rgba(143, 173, 140, 0.07) 0%,
+    transparent               60%);
+  filter: blur(56px);
+}
+
+a, button, [role="button"] { touch-action: manipulation; }
+img, svg { max-width: 100%; display: block; }
+
+/* ================================================================
+   FOCUS VISIBLE — global accessible keyboard ring
+   ================================================================ */
+:focus { outline: none; }
+
+:focus-visible {
+  outline: 2px solid var(--accent-1);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Stronger ring on interactive elements */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ================================================================
+   TYPOGRAPHY
+   ================================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  color: var(--accent-light);
+}
+
+p {
+  color: var(--accent-2);
+  font-weight: 300;   /* explicit — no hereda si algún contenedor sobreescribe */
+}
+
+/* ================================================================
+   SKIP LINK
+   ================================================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: .5rem 1.2rem;
+  background: var(--accent-1);
+  color: var(--bg);
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  z-index: 9999;
+  border-radius: 2px;
+}
+.skip-link:focus { top: .75rem; }
+.skip-link:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 3px; }
+
+/* ================================================================
+   GLASS CARD
+   ================================================================ */
+.card {
+  background: rgba(18, 40, 18, 0.30);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2rem;
+  backdrop-filter: blur(28px) saturate(200%) brightness(1.04);
+  -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(1.04);
+  box-shadow:
+    inset 0 1px 0 rgba(196, 217, 194, 0.12),
+    inset 0 -1px 0 rgba(102, 135, 99, 0.04),
+    0 4px 48px rgba(0, 0, 0, 0.45),
+    0 1px 0 rgba(102, 135, 99, 0.05);
+  transition: border-color var(--dur) var(--ease),
+              box-shadow   var(--dur) var(--ease),
+              transform    var(--dur) var(--ease);
+}
+
+/* Hover only on pointer devices — no jarring on touch */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    border-color: rgba(102, 135, 99, 0.30);
+    box-shadow:
+      inset 0 1px 0 rgba(196, 217, 194, 0.18),
+      inset 0 -1px 0 rgba(102, 135, 99, 0.06),
+      0 0 0 1px rgba(102, 135, 99, 0.06),
+      0 8px 60px rgba(102, 135, 99, 0.12),
+      0 4px 48px rgba(0, 0, 0, 0.50);
+    transform: translateY(-4px);
+  }
+}
+
+.card-title {
+  font-family: var(--font);    /* Inter at small sizes, Bebas illegible below 13px */
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--accent-1);
+  margin-bottom: 1.25rem;
+}
+
+/* ================================================================
+   HORIZONTAL SEPARATOR
+   ================================================================ */
+.rule {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ================================================================
+   BUTTONS — min 44px touch target
+   ================================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-height: 44px;
+  padding: .55rem 1.5rem;
+  border-radius: 2px;
+  font-family: var(--font);
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(102, 135, 99, 0.40);
+  background: transparent;
+  color: var(--accent-2);
+  transition:
+    border-color var(--dur) var(--ease),
+    background   var(--dur) var(--ease),
+    color        var(--dur) var(--ease),
+    box-shadow   var(--dur) var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    border-color: rgba(102, 135, 99, 0.70);
+    background: rgba(102, 135, 99, 0.09);
+    color: var(--accent-light);
+    box-shadow: 0 0 24px rgba(102, 135, 99, 0.12);
+  }
+}
+
+.btn-ghost {
+  border-color: var(--border);
+  color: var(--accent-1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn-ghost:hover {
+    border-color: rgba(102, 135, 99, 0.30);
+    background: rgba(102, 135, 99, 0.05);
+    color: var(--accent-2);
+    box-shadow: none;
+  }
+}
+
+/* ================================================================
+   FORMS
+   ================================================================ */
+.form-group { display: flex; flex-direction: column; gap: .45rem; }
+
+.form-label {
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent-1);   /* no opacity reduction */
+}
+
+.form-input, .form-textarea {
+  background: rgba(18, 40, 18, 0.55);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--accent-light);
+  font-family: var(--font);
+  font-size: .95rem;
+  font-weight: 400;
+  padding: .75rem 1rem;
+  width: 100%;
+  min-height: 44px;
+  backdrop-filter: blur(8px);
+  transition: border-color var(--dur) var(--ease),
+              box-shadow   var(--dur) var(--ease);
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+  color: var(--accent-1);
+  opacity: .55;
+}
+
+.form-input:focus-visible, .form-textarea:focus-visible {
+  outline: none;
+  border-color: rgba(102, 135, 99, 0.55);
+  box-shadow: 0 0 0 3px rgba(102, 135, 99, 0.09);
+}
+
+.form-textarea { resize: vertical; min-height: 130px; }
+
+/* ================================================================
+   PAGE LAYOUT
+   ================================================================ */
+.page-section { padding: 120px 2rem; }
+
+.section-container {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.section-header { margin-bottom: 3.5rem; }
+
+.section-label {
+  display: block;
+  font-family: var(--font);    /* Inter for small labels — Bebas too heavy at 11px */
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--accent-1);
+  margin-bottom: .75rem;
+}
+
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;           /* Bebas needs more size to read clearly */
+  letter-spacing: .1em;
+  color: var(--accent-light);
+  text-shadow: 0 0 60px rgba(102, 135, 99, 0.14);
+}
+
+/* ================================================================
+   SCROLL REVEAL
+   ================================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity   800ms var(--ease),
+    transform 800ms var(--ease);
+}
+.reveal.revealed { opacity: 1; transform: translateY(0); }
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity   700ms var(--ease),
+    transform 700ms var(--ease);
+}
+.reveal-stagger.revealed > *:nth-child(1) { transition-delay:  60ms; opacity:1; transform:none; }
+.reveal-stagger.revealed > *:nth-child(2) { transition-delay: 140ms; opacity:1; transform:none; }
+.reveal-stagger.revealed > *:nth-child(3) { transition-delay: 220ms; opacity:1; transform:none; }
+.reveal-stagger.revealed > *:nth-child(4) { transition-delay: 300ms; opacity:1; transform:none; }
+.reveal-stagger.revealed > *:nth-child(5) { transition-delay: 380ms; opacity:1; transform:none; }
+.reveal-stagger.revealed > *:nth-child(6) { transition-delay: 460ms; opacity:1; transform:none; }
+.reveal-stagger.revealed > *:nth-child(7) { transition-delay: 540ms; opacity:1; transform:none; }
+
+
+/* ================================================================
+   MONO UTILITY
+   ================================================================ */
+.mono {
+  font-family: var(--font);    /* Inter for small UI labels */
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--accent-1);
+}
+
+/* ================================================================
+   SCROLLBAR
+   ================================================================ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: rgba(102, 135, 99, 0.30);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(102, 135, 99, 0.50); }
+
+/* ================================================================
+   SELECTION
+   ================================================================ */
+::selection { background: rgba(102, 135, 99, 0.28); color: var(--accent-light); }
+
+/* ================================================================
+   RESPONSIVE — reduce section padding on small screens
+   ================================================================ */
+@media (max-width: 768px) {
+  .page-section { padding: 80px 1.25rem; }
+  .section-header { margin-bottom: 2.5rem; }
+
+  /* Scale blobs down so they don't overflow and create scroll */
+  .blob-1 { width: 420px; height: 420px; }
+  .blob-2 { width: 360px; height: 360px; }
+  .blob-3 { width: 300px; height: 300px; }
+  .blob-4 { width: 240px; height: 240px; }
+}
+
+@media (max-width: 480px) {
+  .page-section { padding: 64px 1rem; }
+  .card { padding: 1.25rem; }
+}
+
+/* ================================================================
+   REDUCED MOTION
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
