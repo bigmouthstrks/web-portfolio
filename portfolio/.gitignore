@@ -43,6 +43,5 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 
-# Secrets — copied into src/environments/environment.ts at build time
+# Secrets
 .env
-src/environments/environment.ts

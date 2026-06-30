@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -39,5 +39,7 @@ export const environment = {
 };
 `;
 
-writeFileSync(resolve(root, 'src/environments/environment.ts'), content);
+const outPath = resolve(root, 'src/environments/environment.ts');
+mkdirSync(dirname(outPath), { recursive: true });
+writeFileSync(outPath, content);
 console.log(`[env] Wrote src/environments/environment.ts (${production ? 'production' : 'development'})`);
