@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
 import { PORTFOLIO_DATA } from '../../core/data/portfolio.data';
+import { ContactService } from '../../core/services/contact.service';
 
 type FormStatus = 'idle' | 'sending' | 'sent' | 'error';
 
@@ -238,6 +239,7 @@ type FormStatus = 'idle' | 'sending' | 'sent' | 'error';
   `],
 })
 export class ContactComponent {
+  readonly #contact = inject(ContactService);
   readonly data = PORTFOLIO_DATA;
   readonly status = signal<FormStatus>('idle');
   readonly errorText = signal('');
@@ -252,25 +254,26 @@ export class ContactComponent {
     if (this.status() === 'sending') return;
 
     const form = event.target as HTMLFormElement;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const raw = Object.fromEntries(new FormData(form).entries());
+    const data = {
+      name: String(raw['name'] ?? ''),
+      email: String(raw['email'] ?? ''),
+      subject: String(raw['subject'] ?? ''),
+      message: String(raw['message'] ?? ''),
+      _trap: String(raw['_trap'] ?? ''),
+    };
 
     this.status.set('sending');
     this.errorText.set('');
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
+      const result = await this.#contact.submit(data);
 
-      const json = await res.json().catch(() => ({}));
-
-      if (res.ok) {
+      if (result.ok) {
         this.status.set('sent');
         form.reset();
       } else {
-        this.errorText.set(json.error ?? 'Error inesperado. Intenta nuevamente.');
+        this.errorText.set(result.error);
         this.status.set('error');
       }
     } catch {

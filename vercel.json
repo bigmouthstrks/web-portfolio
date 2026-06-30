@@ -1,11 +1,10 @@
 {
-  "buildCommand": "cd portfolio && npm install && ng build --configuration production",
+  "buildCommand": "cd portfolio && npm install && npm run build",
   "outputDirectory": "portfolio/dist/portfolio/browser",
   "installCommand": "echo skip",
   "framework": null,
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    { "source": "/((?!assets/).*)", "destination": "/index.html" }
   ],
   "headers": [
     {
